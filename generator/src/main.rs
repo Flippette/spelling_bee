@@ -9,7 +9,7 @@ const ALPHABET: &str = "abcdefghijklmnopqrstuvwxyz";
 
 fn main() -> Result<()> {
     let wordlist = io::BufReader::new(fs::File::open(
-        match env::args().nth(1).unwrap_or(String::from("")).as_str() {
+        match env::args().nth(1).unwrap_or_default().as_str() {
             "--full" | "-f" => {
                 println!("Using FULL wordlist");
                 "../wordlist.full.txt"
